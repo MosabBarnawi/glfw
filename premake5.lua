@@ -3,7 +3,7 @@ project "GLFW"
 	language "C"
 	staticruntime "on"
 	--warnings "off"
-
+	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-intermediate/" .. outputdir .. "/%{prj.name}")
 
@@ -106,7 +106,10 @@ project "GLFW"
 		runtime "Debug"
 		symbols "on"
 		sanitize { "Address" }
-		flags { "NoRuntimeChecks", "NoIncrementalLink" }
+		runtimechecks "Off"
+		incrementallink "Off"
+		multiprocessorcompile "On"
+		--flags { "NoRuntimeChecks", "NoIncrementalLink" }
 
 	filter "configurations:Release"
 		runtime "Release"
